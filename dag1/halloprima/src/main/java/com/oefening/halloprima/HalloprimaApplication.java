@@ -1,13 +1,13 @@
-package com.oefening.hallo;
+package com.oefening.halloprima;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HalloApplication {
+public class HalloprimaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HalloApplication.class, args);
-		System.out.println("De server draait");
+		SpringApplication.run(HalloprimaApplication.class, args);
 	}
+
 }
