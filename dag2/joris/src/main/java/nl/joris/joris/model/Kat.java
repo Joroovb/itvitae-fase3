@@ -1,20 +1,25 @@
-package com.oefening.halloprima.models;
+package nl.joris.joris.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import org.springframework.data.relational.core.sql.In;
 
 @Entity
-@Table(name = "kat")
 public class Kat {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
     private String naam;
     private Integer leeftijd;
 
+    // default constructor
     public Kat() {}
 
+    // constructor om alle velden behalve id te zetten
     public Kat(String naam, Integer leeftijd) {
         this.naam = naam;
         this.leeftijd = leeftijd;
