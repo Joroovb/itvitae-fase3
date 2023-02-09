@@ -31,6 +31,15 @@ public class Kat {
     @JsonManagedReference
     private List<Kitten> kittens = new ArrayList<>();
 
+    // Eigenaarskant van de relatie
+    @ManyToMany
+    @JoinTable(
+            name = "katten_mensen",
+            joinColumns = @JoinColumn(name = "kat_id"),
+            inverseJoinColumns = @JoinColumn(name = "mens_id")
+    )
+    private List<Mens> mensen = new ArrayList<>();
+
     // default constructor
     public Kat() {}
 
