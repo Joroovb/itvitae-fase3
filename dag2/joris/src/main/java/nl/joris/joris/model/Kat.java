@@ -1,10 +1,13 @@
 package nl.joris.joris.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.data.relational.core.sql.In;
+
+// One to one
+// many to one
+// one to many
+// many to many
+
 
 @Entity
 public class Kat {
@@ -15,6 +18,10 @@ public class Kat {
 
     private String naam;
     private Integer leeftijd;
+
+    @OneToOne
+    @JoinColumn(name = "chip_id")
+    private Chip chip;
 
     // default constructor
     public Kat() {}
@@ -27,6 +34,14 @@ public class Kat {
 
     public Long getId() {
         return id;
+    }
+
+    public Chip getChip() {
+        return chip;
+    }
+
+    public void setChip(Chip chip) {
+        this.chip = chip;
     }
 
     public String getNaam() {

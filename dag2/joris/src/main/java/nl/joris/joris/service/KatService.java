@@ -1,5 +1,6 @@
 package nl.joris.joris.service;
 
+import nl.joris.joris.model.Chip;
 import nl.joris.joris.model.Kat;
 import nl.joris.joris.repository.KatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class KatService {
 
     @Autowired
     KatRepository katRepository;
+
+    @Autowired
+    ChipService chipService;
 
     public Kat newKat(Kat kat) {
         return katRepository.save(kat);
@@ -55,5 +59,17 @@ public class KatService {
         }
 
         return katRepository.save(oldKat);
+    }
+
+    public Kat addChipToKat(long id, Chip chip) {
+        if (!katRepository.existsById(id)) {
+            return null;
+        }
+
+        Kat kat = katRepository.findById(id).get();
+
+        Chip tempChip = chipService.newChip(kat, chip);
+        kat.setChip(tempChip);
+        return katRepository.save(kat);
     }
 }

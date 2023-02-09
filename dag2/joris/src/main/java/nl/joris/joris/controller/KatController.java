@@ -1,5 +1,6 @@
 package nl.joris.joris.controller;
 
+import nl.joris.joris.model.Chip;
 import nl.joris.joris.model.Kat;
 import nl.joris.joris.service.KatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,11 @@ public class KatController {
     @PutMapping("/{id}")
     public Kat updateKatById(@PathVariable(value = "id") long id, @RequestBody Kat kat) {
         return katService.updateKatById(id, kat);
+    }
+
+    @PutMapping("/{id}/newchip")
+    public Kat addChipToKat(@PathVariable(value = "id") long id, @RequestBody Chip chip) {
+        return katService.addChipToKat(id, chip);
     }
 
     // Delete
