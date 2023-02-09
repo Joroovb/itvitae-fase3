@@ -2,6 +2,7 @@ package nl.joris.joris.controller;
 
 import nl.joris.joris.model.Chip;
 import nl.joris.joris.model.Kat;
+import nl.joris.joris.model.Kitten;
 import nl.joris.joris.service.KatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +46,11 @@ public class KatController {
     @PutMapping("/{id}/newchip")
     public Kat addChipToKat(@PathVariable(value = "id") long id, @RequestBody Chip chip) {
         return katService.addChipToKat(id, chip);
+    }
+
+    @PutMapping("/{id}/newkitten")
+    public Kat katGivesBirth(@PathVariable(value = "id") long id, @RequestBody Kitten kitten) {
+        return katService.katGivesBirth(id, kitten);
     }
 
     // Delete

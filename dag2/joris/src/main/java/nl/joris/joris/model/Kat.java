@@ -1,7 +1,11 @@
 package nl.joris.joris.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.springframework.data.relational.core.sql.In;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // One to one
 // many to one
@@ -22,6 +26,10 @@ public class Kat {
     @OneToOne
     @JoinColumn(name = "chip_id")
     private Chip chip;
+
+    @OneToMany
+    @JsonManagedReference
+    private List<Kitten> kittens = new ArrayList<>();
 
     // default constructor
     public Kat() {}
@@ -58,5 +66,13 @@ public class Kat {
 
     public void setLeeftijd(Integer leeftijd) {
         this.leeftijd = leeftijd;
+    }
+
+    public List<Kitten> getKittens() {
+        return kittens;
+    }
+
+    public void setKittens(List<Kitten> kittens) {
+        this.kittens = kittens;
     }
 }
