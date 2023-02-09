@@ -44,9 +44,16 @@ public class KatService {
             return null;
         }
 
-        System.out.println(kat.getLeeftijd());
-        System.out.println(kat.getNaam());
+        Kat oldKat = katRepository.findById(id).get();
 
-        return kat;
+        if (kat.getNaam() != null) {
+            oldKat.setNaam(kat.getNaam());
+        }
+
+        if (kat.getLeeftijd() != null) {
+            oldKat.setLeeftijd(kat.getLeeftijd());
+        }
+
+        return katRepository.save(oldKat);
     }
 }

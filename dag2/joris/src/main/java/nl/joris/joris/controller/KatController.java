@@ -36,7 +36,6 @@ public class KatController {
 
     // Update
     // http put
-
     @PutMapping("/{id}")
     public Kat updateKatById(@PathVariable(value = "id") long id, @RequestBody Kat kat) {
         return katService.updateKatById(id, kat);
