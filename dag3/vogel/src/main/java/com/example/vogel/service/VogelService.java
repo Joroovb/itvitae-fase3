@@ -20,4 +20,17 @@ public class VogelService {
     public Iterable<Vogel> getVogelByNaam(String naam) {
         return vogelRepository.findByNaam(naam);
     }
+
+    public Integer getCountVogelByNaam(String naam) {
+        return vogelRepository.countByNaam(naam);
+    }
+
+    public void testVogel() {
+        Vogel v = new Vogel("Pietje", "Parkiet");
+        vogelRepository.save(v);
+    }
+
+    public Iterable<Vogel> getAllVogels() {
+        return vogelRepository.findAll();
+    }
 }
