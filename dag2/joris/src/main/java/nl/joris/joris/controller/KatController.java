@@ -21,6 +21,7 @@ public class KatController {
     // http post
     @PostMapping("/new")
     public Kat newKat(@RequestBody Kat kat) {
+        System.out.println("Req");
         return katService.newKat(kat);
     }
 
