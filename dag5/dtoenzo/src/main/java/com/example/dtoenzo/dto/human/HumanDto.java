@@ -1,10 +1,10 @@
-package com.example.dtoenzo.dto;
+package com.example.dtoenzo.dto.human;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class HighHatDto {
+public class HumanDto {
     private Long id;
 }

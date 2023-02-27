@@ -1,9 +1,9 @@
 package com.example.dtoenzo.repository;
 
-import com.example.dtoenzo.models.HighHat;
+import com.example.dtoenzo.models.Human;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface HighHatRepository extends CrudRepository<HighHat, Long> {
+public interface HumanRepository extends CrudRepository<Human, Long> {
 }

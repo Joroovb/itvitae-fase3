@@ -1,11 +1,11 @@
 package com.example.dtoenzo.service;
 
-import com.example.dtoenzo.dto.RabbitGetDto;
-import com.example.dtoenzo.dto.RabbitPostDto;
+import com.example.dtoenzo.dto.rabbit.RabbitGetDto;
+import com.example.dtoenzo.dto.rabbit.RabbitPostDto;
 import com.example.dtoenzo.mapper.RabbitMapper;
-import com.example.dtoenzo.models.HighHat;
+import com.example.dtoenzo.models.Human;
 import com.example.dtoenzo.models.Rabbit;
-import com.example.dtoenzo.repository.HighHatRepository;
+import com.example.dtoenzo.repository.HumanRepository;
 import com.example.dtoenzo.repository.RabbitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class RabbitService {
     RabbitMapper rabbitMapper;
 
     @Autowired
-    HighHatRepository highHatRepository;
+    HumanRepository humanRepository;
 
     public RabbitGetDto getRabbitById(Long id) {
         Rabbit rabbit = rabbitRepository.findById(id).get();
@@ -38,8 +38,11 @@ public class RabbitService {
         return rabbitRepository.findById(rabbitId).get();
     }
 
-    public void addHighHat(Rabbit rabbit,HighHat hh) {
-        rabbit.setHighHat(hh);
+    public void addHumanToRabbit(Long rabbitid, Long humanId) {
+        Rabbit rabbit = rabbitRepository.findById(rabbitid).get();
+        Human human = humanRepository.findById(humanId).get();
+        human.getRabbits().add(rabbit);
+        rabbit.getHumans().add(human);
         rabbitRepository.save(rabbit);
     }
 }

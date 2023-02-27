@@ -1,13 +1,11 @@
-package com.example.dtoenzo.dto;
+package com.example.dtoenzo.dto.rabbit;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class RabbitGetDto {
-    private Long id;
+public class RabbitPostDto {
     private String name;
     private Integer age;
-    private HighHatDto highHat;
 }

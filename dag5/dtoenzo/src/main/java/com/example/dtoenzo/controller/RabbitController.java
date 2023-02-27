@@ -1,7 +1,7 @@
 package com.example.dtoenzo.controller;
 
-import com.example.dtoenzo.dto.RabbitGetDto;
-import com.example.dtoenzo.dto.RabbitPostDto;
+import com.example.dtoenzo.dto.rabbit.RabbitGetDto;
+import com.example.dtoenzo.dto.rabbit.RabbitPostDto;
 import com.example.dtoenzo.service.RabbitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,5 +22,11 @@ public class RabbitController {
     @PostMapping("/new")
     public void newRabbit(@RequestBody RabbitPostDto rabbit) {
         rabbitService.newRabbit(rabbit);
+    }
+
+    @PutMapping("/{rabbitid}/{humanid}")
+    public void addHumanToRabbit(@PathVariable(value = "rabbitid") Long rabbitid,
+                                 @PathVariable(value = "humanid") Long humanId) {
+        rabbitService.addHumanToRabbit(rabbitid, humanId);
     }
 }
