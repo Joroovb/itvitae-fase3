@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class RabbitDto {
     private String name;
-    private Integer age;
+    private Integer leeftijd;
 }

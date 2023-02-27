@@ -17,4 +17,9 @@ public class RabbitController {
     public RabbitDto getRabbitById(@PathVariable(value = "id") Long id) {
         return rabbitService.getRabbitById(id);
     }
+
+    @PostMapping("/new")
+    public void newRabbit(@RequestBody RabbitDto rabbit) {
+        rabbitService.newRabbit(rabbit);
+    }
 }
