@@ -5,7 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RabbitDto {
+public class RabbitGetDto {
+    private Long id;
     private String name;
-    private Integer leeftijd;
+    private Integer age;
+    private HighHatDto highHat;
 }
