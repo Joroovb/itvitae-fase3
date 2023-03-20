@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Welkom bij de vogel app!</h1>
+
+<p>Gebruik deze knop om een vogel aan te maken</p>
+<button onclick="maakTestVogel()" >Maak een vogel</button>
+<p id="test-vogel"></p>
+
+<h2>Zoek vogel op naam</h2>
+<label for="naam">Naam</label>
+<input type="text" id="naam">
+<button onclick="zoekVogelOpNaam()">Zoeken</button>
+<p id="zoekresultaat"></p>
+
+
+<p>Gebruik deze knop om alle vogels op te halen</p>
+<button onclick="haalAlleVogels()">My birdfeeder gets all the birds to the yard</button>
+<p id="alle-vogels"></p>
+
+<table>
+    <tr>
+        <th>Naam</th>
+        <th>Soort</th>
+    </tr>
+    <tbody id="table"></tbody>
+</table>
+
+<a href="/vogel/vogelform.html">Klik hier om een vogel toe te voegen</a>
+
+</body>
+<script src="app.js"></script>
+</html>
